@@ -10,7 +10,11 @@ namespace CodeJam_SPACE
     {
         static void Main(string[] args)
         {
-
+            ASCII ascii = new ASCII();
+            Interface.SetTailleConsole();
+            Console.Write(ascii.terre);
+            Console.ReadKey();
         }
     }
 }
+

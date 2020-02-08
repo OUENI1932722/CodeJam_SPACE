@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CodeJam_SPACE
 {
-    class Cockpit
+    class Meteo
     {
     }
 }

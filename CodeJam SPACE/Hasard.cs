@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CodeJam_SPACE
 {
-    class Weather
+    class Hasard
     {
     }
 }
