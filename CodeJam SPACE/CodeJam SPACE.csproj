@@ -48,6 +48,7 @@
     <Compile Include="Carburant.cs" />
     <Compile Include="Charge.cs" />
     <Compile Include="Cabine.cs" />
+    <Compile Include="Fusee.cs" />
     <Compile Include="Hasard.cs" />
     <Compile Include="Interface.cs" />
     <Compile Include="Moteur.cs" />
