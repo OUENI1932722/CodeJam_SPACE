@@ -15,7 +15,14 @@ namespace CodeJam_SPACE
 
         private readonly double INTENSITE_GRAV_TERRE = 9.8/*N/kg*/, VITESSE_SATELLISATION = 7.9/*km/s*/;
         private double poidsFusee, masseFusee, quantiteCarburant, pousseeFusee, debitMassiqueGaz, aireMoteur, densiteGaz, volumeGaz, accelerationFusee, velociteGaz = 0;
+        private Fusee fusee;
 
+
+        public Physique(Fusee fusee)
+        {
+            this.fusee = fusee;
+        }
+         
         double CalculerPoidsFusee()
         {
             poidsFusee = masseFusee * INTENSITE_GRAV_TERRE;
