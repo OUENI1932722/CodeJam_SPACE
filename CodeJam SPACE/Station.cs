@@ -51,13 +51,13 @@ namespace CodeJam_SPACE
             switch (choix)
             {
                 case 1:
-                    moteur = new Moteur("RS-68",737,3.01,1,241, 972, 2972);
+                    moteur = new Moteur("RS-68",737, 3.01, 1, 241, 972000, 2972);
                     break;
                 case 2:
-                    moteur = new Moteur("Viking 5C", 826, 2.87, 0.99,244, 960, 2851);
+                    moteur = new Moteur("Viking 5C", 826, 2.87, 0.99, 244, 960000, 2851);
                     break;
                 case 3:
-                    moteur = new Moteur("Engine", 911,2.67,0.93,262,952, 2713);
+                    moteur = new Moteur("Engine", 911, 2.67, 0.93, 262, 952000, 2713);
                     break;
             }
             //Donner le choix du Carburant

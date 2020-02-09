@@ -51,7 +51,7 @@ namespace CodeJam_SPACE
         public void MiseAJour()
         {
             int timer = 0;
-            while (Hauteur >= 0)
+            while (VitesseFusee >= 0)
             {
                 System.Threading.Thread.Sleep(100);
                 CalculerPoidsFusee();
@@ -71,6 +71,7 @@ namespace CodeJam_SPACE
                 
                 Console.SetCursorPosition(0,0);
                 Console.Write("Vitesse : " + VitesseFusee + "\nPoids : " + poidsFusee + "\nAcceleration : " + accelerationFusee + "\nQuantité de carburant : " + QuantiteCarburant + "\nHauteur : " + Hauteur + "\nDebit massique: " + debitMasique);
+                affichage.update(Convert.ToString(Hauteur));
             }
         }
         /*double CalculerVitesseEjectionGaz()
