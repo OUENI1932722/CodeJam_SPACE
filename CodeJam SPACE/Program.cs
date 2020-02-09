@@ -13,7 +13,7 @@ namespace CodeJam_SPACE
             Station station = new Station();
             station.init();
             station.intro();
-            station.play();
+            station.play(); 
         }
     }
 }
