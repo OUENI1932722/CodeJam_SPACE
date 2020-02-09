@@ -18,6 +18,15 @@ namespace CodeJam_SPACE
         private Physique physique;
         private int choix;
         private int quantiteCarburant;
+
+        public void FaireChoix()
+        {
+            try
+            {
+            choix = Convert.ToInt16(Console.ReadLine());
+            }
+            catch (Exception) {}
+        }
         public void play()
         {
             //Instancier la météo
@@ -26,7 +35,7 @@ namespace CodeJam_SPACE
             do
             {
                 affichage.choixCockpit();
-                choix = Convert.ToInt16(Console.ReadLine());
+                FaireChoix();
             }
             while (choix != 1 && choix != 2 && choix != 3);
             switch (choix)
@@ -45,7 +54,7 @@ namespace CodeJam_SPACE
             do
             {
                 affichage.choixEngine();
-                choix = Convert.ToInt16(Console.ReadLine());
+                FaireChoix();
             }
             while (choix != 1 && choix != 2 && choix != 3);
             switch (choix)
@@ -64,14 +73,15 @@ namespace CodeJam_SPACE
             do
             {
                 affichage.choixCarburant();
-                choix = Convert.ToInt16(Console.ReadLine());
+                FaireChoix();
             }
             while (choix != 1 && choix != 2 && choix != 3);
             //Donner le choix de la quantité de carburant
             do
             {
                 affichage.choixQuantite();
-                quantiteCarburant = Convert.ToInt32(Console.ReadLine());
+                FaireChoix();
+                quantiteCarburant = choix;
             }
             while (choix > 2000);
             switch (choix)
@@ -88,6 +98,8 @@ namespace CodeJam_SPACE
             }
             Console.CursorVisible = false;
             fusee = new Fusee(cabine, moteur, carburant);
+            affichage.effacerTextBox();
+            affichage.Lancement();
             physique = new Physique(fusee);
             physique.MiseAJour();
         }

@@ -50,19 +50,19 @@ namespace CodeJam_SPACE
         {
             effacerTextBox();
             Console.SetCursorPosition(10, 5);
-            Console.WriteLine("Bienvenue au CODEJAM Space Program,");
+            Console.WriteLine("Bienvenue au CODEJAM Space Program!");
             Console.SetCursorPosition(10, 7);
-            Console.WriteLine("Commencon par choisir les pièces. ");
+            Console.WriteLine("Commençons par choisir les pièces. ");
             Console.SetCursorPosition(10, 8);
-            Console.WriteLine("Il y a 3 compagnies que vous pouvez choisir");
+            Console.WriteLine("Il y a 3 compagnies d'où vous pouvez choisir");
             Console.SetCursorPosition(10, 9);
             Console.WriteLine("la provenance de la pièces : ");
             Console.SetCursorPosition(10, 11);
-            Console.WriteLine("1. spaceX      (chère, légée)");
+            Console.WriteLine("1. SpaceX      (Cher, léger)");
             Console.SetCursorPosition(10, 12);
-            Console.WriteLine("2. espacioTaco (affordable, mais un peu lourd)");
+            Console.WriteLine("2. EspacioTaco (Abordable, peu lourd)");
             Console.SetCursorPosition(10, 13);
-            Console.WriteLine("3. CNSA        (cheap, lourd)");
+            Console.WriteLine("3. CNSA        (Pas cher, lourd)");
             Console.SetCursorPosition(12, 15);
             Console.WriteLine("(Appuyer sur une touche pour continuer)");
             Console.SetCursorPosition(51, 15);
@@ -70,13 +70,13 @@ namespace CodeJam_SPACE
             effacerTextBox();
             //-------------------------------------------------------------
             Console.SetCursorPosition(10, 5);
-            Console.WriteLine("Bienvenue au CODEJAM Space Program,");
+            Console.WriteLine("Bienvenue au CODEJAM Space Program!");
             Console.SetCursorPosition(10, 7);
             Console.WriteLine("Il y a 3 types de pièces :");
             Console.SetCursorPosition(10, 9);
-            Console.WriteLine("1. Le cockpit (le siège avant)");
+            Console.WriteLine("1. La cabine (Le siège avant)");
             Console.SetCursorPosition(10, 10);
-            Console.WriteLine("2. Le cargo (Pour le transport de matériaux)");
+            Console.WriteLine("2. La charge (Pour le transport de matériaux)");
             Console.SetCursorPosition(10, 11);
             Console.WriteLine("3. Le moteur");
             Console.SetCursorPosition(12, 15);
@@ -90,16 +90,16 @@ namespace CodeJam_SPACE
             Console.SetCursorPosition(10, 5);
             Console.WriteLine("Phase de contruction....");
             Console.SetCursorPosition(10, 7);
-            Console.WriteLine("Choisisez le cockpit :");
+            Console.WriteLine("Choisisez la cabine :");
             Console.SetCursorPosition(10, 9);
-            Console.WriteLine("1. spaceX lightCockpit mk2  : 0.83 T");
+            Console.WriteLine("1. SpaceX lightCockpit mk2  : 0.83 T");
             Console.SetCursorPosition(10, 11);
-            Console.WriteLine("2. espacioTaco dioCockpito  : 1.07 T");
+            Console.WriteLine("2. EspacioTaco dioCockpito  : 1.07 T");
             Console.SetCursorPosition(10, 13);
             Console.WriteLine("3. CNSA cockpit             : 1.67 T");
             Console.SetCursorPosition(12, 15);
-            Console.WriteLine("Votre réponse :");
-            Console.SetCursorPosition(27, 15);
+            Console.WriteLine("Votre réponse : ");
+            Console.SetCursorPosition(28, 15);
         }
         public void choixEngine()
         {
@@ -109,23 +109,23 @@ namespace CodeJam_SPACE
             Console.SetCursorPosition(10, 7);
             Console.WriteLine("Choisisez l'engine(vide) :");
             Console.SetCursorPosition(10, 9);
-            Console.WriteLine("1. spaceX RS-68: 737kg");
+            Console.WriteLine("1. SpaceX RS-68: 737kg");
             Console.SetCursorPosition(10, 11);
-            Console.WriteLine("2. espacioTaco Viking 5C rocket engine: 826kg");
+            Console.WriteLine("2. EspacioTaco Viking 5C rocket engine: 826kg");
             Console.SetCursorPosition(10, 13);
             Console.WriteLine("3. CNSA Engine :  1251kg");
             Console.SetCursorPosition(12, 15);
-            Console.WriteLine("Votre réponse :");
+            Console.WriteLine("Votre réponse : ");
             
             Console.ForegroundColor = ConsoleColor.Yellow;
 
             Console.SetCursorPosition(13, 10);
-            Console.WriteLine("Fuel : 241 kg/s ");
+            Console.WriteLine("Consommation : 241 kg/s ");
             Console.SetCursorPosition(13, 12);
-            Console.WriteLine("Fuel : 244 kg/s");
+            Console.WriteLine("Consommation : 244 kg/s");
             Console.SetCursorPosition(13, 14);
-            Console.WriteLine("Fuel : 262 kg/s");
-            Console.SetCursorPosition(27, 15);
+            Console.WriteLine("Consommation : 262 kg/s");
+            Console.SetCursorPosition(28, 15);
 
             Console.ForegroundColor = ConsoleColor.White;
         }
@@ -143,8 +143,8 @@ namespace CodeJam_SPACE
             Console.SetCursorPosition(10, 13);
             Console.WriteLine("3. Méthane   | Pousee = 3615");
             Console.SetCursorPosition(12, 15);
-            Console.WriteLine("Votre réponse :");
-            Console.SetCursorPosition(27, 15);
+            Console.WriteLine("Votre réponse : ");
+            Console.SetCursorPosition(28, 15);
         }
         public void choixQuantite()
         {
@@ -156,13 +156,24 @@ namespace CodeJam_SPACE
             Console.SetCursorPosition(10, 9);
             Console.WriteLine("Vous pouvez choisir jusqu'à 2000 Litres");
             Console.SetCursorPosition(12, 15);
-            Console.WriteLine("Votre réponse :");
-            Console.SetCursorPosition(27, 15);
+            Console.WriteLine("Votre réponse : ");
+            Console.SetCursorPosition(28, 15);
         }
-        public void update(string hauteur)
+        public void update(string hauteur, string vitesse, string carburant, string poids)
         {
             Console.SetCursorPosition(147, 2);
-            Console.WriteLine(hauteur + " M");
+            Console.Write(hauteur + " m");
+            Console.SetCursorPosition(156, 4);
+            Console.Write(carburant + " kg    ");
+            Console.SetCursorPosition(156, 6);
+            Console.Write(poids + " kg");
+            Console.SetCursorPosition(136, 6);
+            Console.Write(vitesse + " m/s    ");
+        }
+        public void Lancement()
+        {
+            Console.SetCursorPosition(0, 0);
+            Console.Write(ascii.terreLancement);
         }
     }
 }

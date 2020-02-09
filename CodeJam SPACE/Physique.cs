@@ -43,6 +43,8 @@ namespace CodeJam_SPACE
         void CalculerVitesseFusee()
         {
             VitesseFusee += accelerationFusee;
+            if (VitesseFusee < 0)
+                VitesseFusee = 0;
         }
         void CalculerHauteurFusee()
         {
@@ -51,9 +53,10 @@ namespace CodeJam_SPACE
         public void MiseAJour()
         {
             int timer = 0;
-            while (VitesseFusee >= 0)
+            VitesseFusee = 1;
+            while (VitesseFusee > 0)
             {
-                System.Threading.Thread.Sleep(100);
+                System.Threading.Thread.Sleep(250);
                 CalculerPoidsFusee();
                 CalculerAcceleration();
                 CalculerVitesseFusee();
@@ -63,15 +66,12 @@ namespace CodeJam_SPACE
                     CalculerPerteMasse();
                     QuantiteCarburant -= debitMasique;
                 }
-                else
+                if (QuantiteCarburant <= 0)
                 {
                     pousseeFusee = 0;
                     QuantiteCarburant = 0;
                 }
-                
-                Console.SetCursorPosition(0,0);
-                Console.Write("Vitesse : " + VitesseFusee + "\nPoids : " + poidsFusee + "\nAcceleration : " + accelerationFusee + "\nQuantité de carburant : " + QuantiteCarburant + "\nHauteur : " + Hauteur + "\nDebit massique: " + debitMasique);
-                affichage.update(Convert.ToString(Hauteur));
+                affichage.update(Convert.ToString(Math.Round(Hauteur)), Convert.ToString(Math.Round(VitesseFusee)),Convert.ToString(Math.Round(QuantiteCarburant)), Convert.ToString(Math.Round(poidsFusee)));
             }
         }
         /*double CalculerVitesseEjectionGaz()
