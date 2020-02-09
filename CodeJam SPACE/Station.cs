@@ -40,7 +40,7 @@ namespace CodeJam_SPACE
             //Donner le choix du Moteur
             do
             {
-                affichage.choixEngine();
+                //affichage.choixEngine();
                 choix = Convert.ToInt16(Console.ReadLine());
             }
             while (choix != 1 && choix != 2 && choix != 3);

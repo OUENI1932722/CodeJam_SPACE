@@ -43,18 +43,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Affichage.cs" />
     <Compile Include="ASCII.cs" />
     <Compile Include="Carburant.cs" />
     <Compile Include="Charge.cs" />
     <Compile Include="Cabine.cs" />
+    <Compile Include="Danger.cs" />
     <Compile Include="Fusee.cs" />
     <Compile Include="Hasard.cs" />
+    <Compile Include="MeteoActuel.cs" />
     <Compile Include="Moteur.cs" />
     <Compile Include="Physique.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Station.cs" />
     <Compile Include="Trajectoire.cs" />
     <Compile Include="Meteo.cs" />
+    <Compile Include="Vent.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

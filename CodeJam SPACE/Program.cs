@@ -11,6 +11,8 @@ namespace CodeJam_SPACE
         static void Main(string[] args)
         {
             Physique physique = new Physique();
+            Affichage affichage = new Affichage();
+            affichage.init();
             physique.MiseAJour();
             Console.ReadKey();
         }
