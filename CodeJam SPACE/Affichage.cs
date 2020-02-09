@@ -107,7 +107,7 @@ namespace CodeJam_SPACE
             Console.SetCursorPosition(10, 5);
             Console.WriteLine("Phase de contruction....");
             Console.SetCursorPosition(10, 7);
-            Console.WriteLine("Choisisez l'engine(vide) :");
+            Console.WriteLine("Choisisez le moteur(vide) :");
             Console.SetCursorPosition(10, 9);
             Console.WriteLine("1. spaceX RS-68: 737kg");
             Console.SetCursorPosition(10, 11);

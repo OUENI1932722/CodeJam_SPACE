@@ -12,8 +12,9 @@ namespace CodeJam_SPACE
         {
             Physique physique = new Physique();
             Affichage affichage = new Affichage();
-            affichage.init();
-            physique.MiseAJour();
+            Station station = new Station();
+            station.init();
+            station.play();
             Console.ReadKey();
         }
     }
