@@ -11,7 +11,6 @@ namespace CodeJam_SPACE
         static void Main(string[] args)
         {
             Physique physique = new Physique();
-            ASCII ascii = new ASCII();
             physique.MiseAJour();
             Console.ReadKey();
         }
