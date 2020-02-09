@@ -14,7 +14,7 @@ namespace CodeJam_SPACE
          */
 
         private readonly double INTENSITE_GRAV_TERRE = 9.8/*N/kg*/, VITESSE_SATELLISATION = 7.9/*km/s*/;
-        private double poidsFusee, masseFusee = 500000, quantiteCarburant = 190000, pousseeFusee = 2280000, debitMassiqueGaz, aireMoteur, densiteGaz, volumeGaz, accelerationFusee, velociteGaz = 0,  vitesseFusee = 1;
+        private double poidsFusee, masseFusee = 78000, quantiteCarburant = 32000, pousseeFusee = 5255000, debitMassiqueGaz, aireMoteur = 7.54, densiteGaz = 1.03, volumeGaz, accelerationFusee, velociteGaz = 0,  vitesseFusee = 0, hauteur = 0;
         private Fusee fusee;
 
 
@@ -38,25 +38,39 @@ namespace CodeJam_SPACE
         {
             debitMassiqueGaz = densiteGaz * velociteGaz * aireMoteur;
         }
+        void CalculerVitesseFusee()
+        {
+            vitesseFusee += accelerationFusee;
+        }
+        void CalculerHauteurFusee()
+        {
+            hauteur += vitesseFusee;
+        }
         public void MiseAJour()
         {
             int timer = 0;
-            while (vitesseFusee != 0)
+            while (1 != 0)
             {
+                System.Threading.Thread.Sleep(1000);
                 CalculerPoidsFusee();
                 CalculerAcceleration();
                 CalculerVelociteGaz();
-                CalculerPerteMasse();
-                quantiteCarburant -= debitMassiqueGaz;
-                if (quantiteCarburant <= 0)
-                    pousseeFusee = 0;
-                timer++;
-                if (timer == 1000)
+                CalculerVitesseFusee();
+                CalculerHauteurFusee();
+                if (quantiteCarburant > 0)
                 {
+                    CalculerPerteMasse();
+                    quantiteCarburant -= debitMassiqueGaz;
+                }
+                if (quantiteCarburant <= 0)
+                {
+                    pousseeFusee = 0;
+                    quantiteCarburant = 0;
+                }
+                timer++;
                     timer = 0;
                     Console.SetCursorPosition(0,0);
-                    Console.Write("Vitesse : " + vitesseFusee + "\nPoids : " + poidsFusee + "\nAcceleration : " + accelerationFusee + "\nQuantité de carburant : " + quantiteCarburant);
-                }
+                    Console.Write("Vitesse : " + vitesseFusee + "\nPoids : " + poidsFusee + "\nAcceleration : " + accelerationFusee + "\nQuantité de carburant : " + quantiteCarburant + "\nHauteur : " + hauteur);
             }
         }
         /*double CalculerVitesseEjectionGaz()
