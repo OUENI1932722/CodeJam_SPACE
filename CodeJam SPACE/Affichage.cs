@@ -9,6 +9,7 @@ namespace CodeJam_SPACE
     class Affichage
     {
         private ASCII ascii = new ASCII();
+        private Random random = new Random();
         public void init()
         {
             Console.SetWindowSize(170, 44);
@@ -169,11 +170,156 @@ namespace CodeJam_SPACE
             Console.Write(poids + " kg");
             Console.SetCursorPosition(136, 6);
             Console.Write(vitesse + " m/s    ");
+            effacerFusee();
+            fusee(random.Next(136,138), 16, 6);
         }
         public void Lancement()
         {
             Console.SetCursorPosition(0, 0);
             Console.Write(ascii.terreLancement);
+        }
+        public void sequenceDeLancement()
+        {
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.SetCursorPosition(129, 36);
+            Console.WriteLine("3");
+            System.Threading.Thread.Sleep(1000);
+            Console.SetCursorPosition(129, 37);
+            Console.WriteLine("2");
+            System.Threading.Thread.Sleep(1000);
+            Console.SetCursorPosition(129, 38);
+            Console.WriteLine("1");
+            System.Threading.Thread.Sleep(1000);
+            Console.SetCursorPosition(129, 39);
+            Console.WriteLine("FIRE !");
+            Console.ForegroundColor = ConsoleColor.White;
+            System.Threading.Thread.Sleep(100);
+            effacerFusee();
+            fusee(136, 26, 1);
+            System.Threading.Thread.Sleep(100);
+            effacerFusee();
+            fusee(137, 25, 2);
+            System.Threading.Thread.Sleep(100);
+            effacerFusee();
+            fusee(136, 24, 3);
+            System.Threading.Thread.Sleep(100);
+            effacerFusee();
+            fusee(137, 23, 4);
+            System.Threading.Thread.Sleep(100);
+            effacerFusee();
+            fusee(136, 22, 5);
+            System.Threading.Thread.Sleep(100);
+            effacerFusee();
+            fusee(137, 21, 6);
+            System.Threading.Thread.Sleep(100);
+            effacerFusee();
+            fusee(137, 20, 6);
+            System.Threading.Thread.Sleep(100);
+            effacerFusee();
+            fusee(136, 19, 6);
+            System.Threading.Thread.Sleep(100);
+            effacerFusee();
+            fusee(137, 18, 6);
+            System.Threading.Thread.Sleep(100);
+            effacerFusee();
+            fusee(136, 17, 6);
+            System.Threading.Thread.Sleep(100);
+            effacerFusee();
+            fusee(135, 16, 6);
+        }
+        private void effacerFusee()
+        {
+            for (int i = 0; i < 33; i++)
+            {
+                Console.SetCursorPosition(124, (i + 9));
+                Console.WriteLine("                                           ");
+            }           
+        }
+        private void fusee(int posX, int posY, int nbFlames)
+        {
+            Console.SetCursorPosition(posX,posY);
+            Console.WriteLine("         /\\");
+            posY++;
+            Console.SetCursorPosition(posX, posY);
+            Console.WriteLine("        |==|");
+            posY++;
+            Console.SetCursorPosition(posX, posY);
+            Console.WriteLine("        |  |");
+            posY++;
+            Console.SetCursorPosition(posX, posY);
+            Console.WriteLine("        |  |");
+            posY++;
+            Console.SetCursorPosition(posX, posY);
+            Console.WriteLine("        |  |");
+            posY++;
+            Console.SetCursorPosition(posX, posY);
+            Console.WriteLine("       /____\\");
+            posY++;
+            Console.SetCursorPosition(posX, posY);
+            Console.WriteLine("       |    |");
+            posY++;
+            Console.SetCursorPosition(posX, posY);
+            Console.WriteLine("       |    |");
+            posY++;
+            Console.SetCursorPosition(posX, posY);
+            Console.WriteLine("       |    |");
+            posY++;
+            Console.SetCursorPosition(posX, posY);
+            Console.WriteLine("       |    |");
+            posY++;
+            Console.SetCursorPosition(posX, posY);
+            Console.WriteLine("      /| |  |\\");
+            posY++;
+            Console.SetCursorPosition(posX, posY);
+            Console.WriteLine("     / | |  | \\");
+            posY++;
+            Console.SetCursorPosition(posX, posY);
+            Console.WriteLine("    /__|_|__|__\\");
+            posY++;
+            Console.SetCursorPosition(posX, posY);
+            Console.WriteLine("       /_\\/_\\");            
+            if(nbFlames > 0)
+            {
+                posY++;
+                Console.SetCursorPosition(posX, posY);
+                Console.WriteLine("       ######");
+                if(nbFlames > 1)
+                {
+                    posY++;
+                    Console.SetCursorPosition(posX, posY);
+                    Console.WriteLine("      ########");
+                    if(nbFlames > 2)
+                    {
+                        posY++;
+                        Console.SetCursorPosition(posX, posY);
+                        Console.WriteLine("       ######");
+                        if(nbFlames > 3)
+                        {
+                            posY++;
+                            Console.SetCursorPosition(posX, posY);
+                            Console.WriteLine("        ####");
+                            if(nbFlames > 4)
+                            {
+                                posY++;
+                                Console.SetCursorPosition(posX, posY);
+                                Console.WriteLine("        ####");
+                                if(nbFlames > 5)
+                                {
+                                    posY++;
+                                    Console.SetCursorPosition(posX, posY);
+                                    Console.WriteLine("         ##");
+                                    if(nbFlames > 6)
+                                    {
+                                        posY++;
+                                        Console.SetCursorPosition(posX, posY);
+                                        Console.WriteLine("         ##");
+                                    }                                    
+                                }                               
+                            }                           
+                        }                       
+                    }                    
+                }                
+            }           
         }
     }
 }
