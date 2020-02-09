@@ -14,21 +14,27 @@ namespace CodeJam_SPACE
          */
 
         private readonly double INTENSITE_GRAV_TERRE = 9.8/*N/kg*/;
-        private double poidsFusee, masseFusee = 78000, masseCarburant = 15000, pousseeFusee = 5255000, debitMasique, densiteGaz = 1.03, accelerationFusee, vitesseFusee = 0, hauteur = 0, impulsionSpecifique = 16056;
+        private double poidsFusee, masseFusee, pousseeFusee, debitMasique, accelerationFusee, impulsionSpecifique;
         private Fusee fusee;
+        private Affichage affichage = new Affichage();
 
 
-        public Physique(/*Fusee fusee*/)
+        public Physique(Fusee fusee)
         {
-           // this.fusee = fusee;
+           this.fusee = fusee;
+            //sans carburant
+            masseFusee = fusee.getPoidsTotal();
+            pousseeFusee = fusee.thrust();
+            impulsionSpecifique = fusee.impulsionSpecifique();
+            QuantiteCarburant = fusee.getQuantiteCarburant();
         }
         void CalculerPoidsFusee()
         {
-            poidsFusee = (masseFusee + masseCarburant) * INTENSITE_GRAV_TERRE;
+            poidsFusee = (masseFusee + QuantiteCarburant) * INTENSITE_GRAV_TERRE;
         }
         void CalculerAcceleration()
         { 
-            accelerationFusee = (pousseeFusee - poidsFusee) / (masseFusee + masseCarburant); //wrong? Voir http://www.rocket-simulator.com/simulator_calc.php  et https://en.wikipedia.org/wiki/Tsiolkovsky_rocket_equation#Examples et https://fr.wikipedia.org/wiki/Moteur-fusée_à_ergols_liquides#Caractéristiques_de_quelques_moteurs-fusées_à_ergols_liquides
+            accelerationFusee = (pousseeFusee - poidsFusee) / (masseFusee + QuantiteCarburant); //wrong? Voir http://www.rocket-simulator.com/simulator_calc.php  et https://en.wikipedia.org/wiki/Tsiolkovsky_rocket_equation#Examples et https://fr.wikipedia.org/wiki/Moteur-fusée_à_ergols_liquides#Caractéristiques_de_quelques_moteurs-fusées_à_ergols_liquides
         }
         void CalculerPerteMasse()
         {
@@ -36,34 +42,35 @@ namespace CodeJam_SPACE
         }
         void CalculerVitesseFusee()
         {
-            vitesseFusee += accelerationFusee;
+            VitesseFusee += accelerationFusee;
         }
         void CalculerHauteurFusee()
         {
-            hauteur += vitesseFusee;
+            Hauteur += VitesseFusee;
         }
         public void MiseAJour()
         {
             int timer = 0;
-            while (hauteur >= 0)
+            while (Hauteur >= 0)
             {
-                System.Threading.Thread.Sleep(1000);
+                System.Threading.Thread.Sleep(100);
                 CalculerPoidsFusee();
                 CalculerAcceleration();
                 CalculerVitesseFusee();
                 CalculerHauteurFusee();
-                if (masseCarburant > 0)
+                if (QuantiteCarburant > 0)
                 {
                     CalculerPerteMasse();
-                    masseCarburant -= debitMasique;
+                    QuantiteCarburant -= debitMasique;
                 }
                 else
                 {
                     pousseeFusee = 0;
-                    masseCarburant = 0;
+                    QuantiteCarburant = 0;
                 }
+                
                 Console.SetCursorPosition(0,0);
-                Console.Write("Vitesse : " + vitesseFusee + "\nPoids : " + poidsFusee + "\nAcceleration : " + accelerationFusee + "\nQuantité de carburant : " + masseCarburant + "\nHauteur : " + hauteur + "\nDebit massique: " + debitMasique);
+                Console.Write("Vitesse : " + VitesseFusee + "\nPoids : " + poidsFusee + "\nAcceleration : " + accelerationFusee + "\nQuantité de carburant : " + QuantiteCarburant + "\nHauteur : " + Hauteur + "\nDebit massique: " + debitMasique);
             }
         }
         /*double CalculerVitesseEjectionGaz()
@@ -84,6 +91,8 @@ namespace CodeJam_SPACE
                 return true;
             return false;
         }
-
+        public double VitesseFusee { get; private set; } = 0;
+        public double Hauteur { get; private set; } = 0;
+        public double QuantiteCarburant { get; set; }
     }
 }

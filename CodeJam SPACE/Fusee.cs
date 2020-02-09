@@ -8,16 +8,30 @@ namespace CodeJam_SPACE
 {
     class Fusee
     {
-        private Moteur moteur;
         private Cabine cabine;
+        private Moteur moteur;
         private Carburant carburant;
-        private Charge charge;
-        public Fusee(Moteur moteur, Cabine cabine, Carburant carburant, Charge charge)
+        public Fusee(Cabine cabine, Moteur moteur, Carburant carburant)
         {
-            this.moteur = moteur;
             this.cabine = cabine;
+            this.moteur = moteur;
             this.carburant = carburant;
-            this.charge = charge;
+        }
+        public double getPoidsTotal()
+        {
+            return cabine.Poids + moteur.Poids + 500 /*Poids du réservoir*/;
+        }
+        public double thrust()
+        {
+            return moteur.Thrust;
+        }
+        public double impulsionSpecifique()
+        {
+            return moteur.ImpSpecifique;
+        }
+        public double getQuantiteCarburant()
+        {
+            return carburant.Quantite;
         }
     }
 }

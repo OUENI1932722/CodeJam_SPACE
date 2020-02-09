@@ -8,36 +8,37 @@ namespace CodeJam_SPACE
 {
     class Carburant
     {
-        /*
-         Kerosene, Oxygène liquide, hydrogène liquide, hydrazine(diazane), aérozine 50, 1,1-diméthylhydrazine, peroxyde d'azote
-         https://en.wikipedia.org/wiki/Liquid_rocket_propellant#Present_use
-         */
-        private double poussee, densite, quantite;
-
         public enum TypeCarburant
         {
             Kerosène, Hydrogène, Méthane
         }
         public Carburant(TypeCarburant typeCarburant, double quantite)
         {
-            switch(typeCarburant)
+            switch (typeCarburant)
             {
                 case TypeCarburant.Kerosène:
-                    poussee = 3510; //m/s
-                    densite = 1.03; //kg/m^3
-                    this.quantite = quantite;
+                    Pousee = 3510; //m/s
+                    Densite = 1.03; //kg/m^3
+                    Prix = 0.73; //$/kg
+                    Quantite = quantite;
                     break;
                 case TypeCarburant.Hydrogène:
-                    poussee = 4462;
-                    densite = 0.32;
-                    this.quantite = quantite;
+                    Pousee = 4462;
+                    Densite = 0.32;
+                    Prix = 5;
+                    Quantite = quantite;
                     break;
                 case TypeCarburant.Méthane:
-                    poussee = 3615;
-                    densite = 0.83;
-                    this.quantite = quantite;
+                    Pousee = 3615;
+                    Densite = 0.83;
+                    Prix = 1.35;
+                    Quantite = quantite;
                     break;
             }
         }
+        public double Pousee { get; }
+        public double Densite { get; }
+        public double Prix { get; }
+        public double Quantite { get; }
     }
 }

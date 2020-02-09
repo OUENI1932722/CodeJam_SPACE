@@ -14,7 +14,7 @@ namespace CodeJam_SPACE
             Direction = getDirectionVent();
             Force = getForceVent(meteo);
         }
-        public int getForceVent(string meteo)
+        private int getForceVent(string meteo)
         {
             if (meteo == "pluie")
                 return random.Next(3, 10);

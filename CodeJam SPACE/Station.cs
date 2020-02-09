@@ -13,7 +13,11 @@ namespace CodeJam_SPACE
         private List<Meteo> meteos = new List<Meteo>();
         private Cabine cabine;
         private Moteur moteur;
+        private Carburant carburant;
+        private Fusee fusee;
+        private Physique physique;
         private int choix;
+        private int quantiteCarburant;
         public void play()
         {
             //Instancier la météo
@@ -40,22 +44,52 @@ namespace CodeJam_SPACE
             //Donner le choix du Moteur
             do
             {
-                //affichage.choixEngine();
+                affichage.choixEngine();
                 choix = Convert.ToInt16(Console.ReadLine());
             }
             while (choix != 1 && choix != 2 && choix != 3);
             switch (choix)
             {
                 case 1:
-                    moteur = new Moteur("RS-68",737,3.01,1,241, 972);
+                    moteur = new Moteur("RS-68",737,3.01,1,241, 972, 2972);
                     break;
                 case 2:
-                    moteur = new Moteur("Viking 5C", 826, 2.87, 0.99,244, 960);
+                    moteur = new Moteur("Viking 5C", 826, 2.87, 0.99,244, 960, 2851);
                     break;
                 case 3:
-                    moteur = new Moteur("Engine", 911,2.67,0.93,262,952);
+                    moteur = new Moteur("Engine", 911,2.67,0.93,262,952, 2713);
                     break;
             }
+            //Donner le choix du Carburant
+            do
+            {
+                affichage.choixCarburant();
+                choix = Convert.ToInt16(Console.ReadLine());
+            }
+            while (choix != 1 && choix != 2 && choix != 3);
+            //Donner le choix de la quantité de carburant
+            do
+            {
+                affichage.choixQuantite();
+                quantiteCarburant = Convert.ToInt32(Console.ReadLine());
+            }
+            while (choix > 2000);
+            switch (choix)
+            {
+                case 1:
+                    carburant = new Carburant(Carburant.TypeCarburant.Kerosène, quantiteCarburant);
+                    break;
+                case 2:
+                    carburant = new Carburant(Carburant.TypeCarburant.Hydrogène, quantiteCarburant);
+                    break;
+                case 3:
+                    carburant = new Carburant(Carburant.TypeCarburant.Méthane, quantiteCarburant);
+                    break;
+            }
+            Console.CursorVisible = false;
+            fusee = new Fusee(cabine, moteur, carburant);
+            physique = new Physique(fusee);
+            physique.MiseAJour();
         }
         public void init()
         {
@@ -71,7 +105,7 @@ namespace CodeJam_SPACE
         public void intro()
         {
             Console.ReadKey();
-            affichage.intro();
+            affichage.tuto();
         }
     }
 }

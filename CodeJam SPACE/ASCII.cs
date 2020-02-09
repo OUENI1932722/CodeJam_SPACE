@@ -16,17 +16,17 @@ namespace CodeJam_SPACE
                 "     ██                                                 ██                                                      *         ██  Météo :                                  ██\n" +
                 "     ██   Bienvenue au CODEJAM Space Program,           ██                                                                ██                                           ██\n" +
                 "     ██                                                 ██                 *                                             *██                                           ██\n" +
-                "     ██   Cet outil créatif va vous permettre de        ██  *                                                             ██                                           ██\n" +
-                "*    ██   simuler le lancement d'une fusée avec les     ██                                 *               *              ███████████████████████████████████████████████\n" +
+                "     ██   Cette outil créatif va vous permettre de      ██  *                                                             ██                                           ██\n" +
+                "*    ██   simuler un lancement de fusée avec les        ██                                 *               *              ███████████████████████████████████████████████\n" +
                 "     ██   pièces que vous allez choisir.                ██                                                                ██                                           ██\n" +
                 "     ██                                                 ██                          *                                     ██                                           ██\n" +
-                "     ██   Fait par Jacob Maltais et                     ██                                                                ██                                           ██\n" +
-                "     ██   et Nicolas Ouellet-Duval.                     ██    *                                                           ██                                           ██\n" +
+                "     ██   Fait par Jacob et Nicolas.                    ██                                                                ██                                           ██\n" +
+                "     ██                                                 ██    *                                                           ██                                           ██\n" +
                 "     ██                                                 ██                                                                ██                                           ██\n" +
                 "     ██                                                 ██                                         *                *     ██                                           ██\n" +
                 "     ██     (Appuyer sur une touche pour continuer)     ██                            *                                   ██                                           ██\n" +
                 "     ██                                                 ██               *                                                ██                                           ██\n" +
-                "     ██                                            2020 ██                             *            *                     ██                                           ██\n" +
+                "     ██                                                 ██                             *            *                     ██                                           ██\n" +
                 "     █████████████████████████████████████████████████████    *                       *                 *                 ██                                           ██\n" +
                 "                                                                    *                                                     ██                                           ██\n" +
                 "                                                                                 *                                   *    ██                                           ██\n" +
