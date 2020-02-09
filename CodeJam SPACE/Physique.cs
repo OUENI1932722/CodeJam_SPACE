@@ -22,7 +22,6 @@ namespace CodeJam_SPACE
         {
             this.fusee = fusee;
         }
-         
         double CalculerPoidsFusee()
         {
             poidsFusee = masseFusee * INTENSITE_GRAV_TERRE;

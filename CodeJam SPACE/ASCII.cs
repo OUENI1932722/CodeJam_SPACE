@@ -9,7 +9,7 @@ namespace CodeJam_SPACE
     class ASCII
     {
         public readonly string terre =
-                                "                                                                                                                                                   *                     \n" +
+                "                                                                                                                                                   *                     \n" +
                 "                                           *                                                                                                                           * \n" +
                 "                                                                      *                                                                                                  \n" +
                 "     █████████████████████████████████████████████████████                                                                                                               \n" +
