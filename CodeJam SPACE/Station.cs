@@ -19,11 +19,11 @@ namespace CodeJam_SPACE
         private int choix;
         private int quantiteCarburant;
 
-        public void FaireChoix()
+        public void FaireChoix(ref int variable)
         {
             try
             {
-            choix = Convert.ToInt16(Console.ReadLine());
+            variable = Convert.ToInt16(Console.ReadLine());
             }
             catch (Exception) {}
         }
@@ -35,7 +35,7 @@ namespace CodeJam_SPACE
             do
             {
                 affichage.choixCockpit();
-                FaireChoix();
+                FaireChoix(ref choix);
             }
             while (choix != 1 && choix != 2 && choix != 3);
             switch (choix)
@@ -54,7 +54,7 @@ namespace CodeJam_SPACE
             do
             {
                 affichage.choixEngine();
-                FaireChoix();
+                FaireChoix(ref choix);
             }
             while (choix != 1 && choix != 2 && choix != 3);
             switch (choix)
@@ -73,17 +73,16 @@ namespace CodeJam_SPACE
             do
             {
                 affichage.choixCarburant();
-                FaireChoix();
+                FaireChoix(ref choix);
             }
             while (choix != 1 && choix != 2 && choix != 3);
             //Donner le choix de la quantité de carburant
             do
             {
                 affichage.choixQuantite();
-                FaireChoix();
-                quantiteCarburant = choix;
+                FaireChoix(ref quantiteCarburant);
             }
-            while (choix > 2000);
+            while (quantiteCarburant > 2000 || quantiteCarburant <= 0);
             switch (choix)
             {
                 case 1:
@@ -102,6 +101,9 @@ namespace CodeJam_SPACE
             affichage.Lancement();
             physique = new Physique(fusee);
             physique.MiseAJour();
+            Console.SetCursorPosition(0, 0);
+            Console.Write("Fin de la simulation.");
+            Console.ReadKey();
         }
         public void init()
         {
