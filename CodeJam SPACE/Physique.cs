@@ -14,7 +14,7 @@ namespace CodeJam_SPACE
          */
 
         private readonly double INTENSITE_GRAV_TERRE = 9.8/*N/kg*/, VITESSE_SATELLISATION = 7.9/*km/s*/;
-        private double poidsFusee, masseFusee = 78000, quantiteCarburant = 32000, pousseeFusee = 5255000, debitMassiqueGaz, aireMoteur = 7.54, densiteGaz = 1.03, volumeGaz, accelerationFusee, velociteGaz = 0,  vitesseFusee = 0, hauteur = 0;
+        private double poidsFusee, masseFusee = 78000, quantiteCarburant = 32000, pousseeFusee = 5255000, debitMasique, aireMoteur = 7.54, densiteGaz = 1.03, volumeGaz, accelerationFusee, velociteGaz = 0,  vitesseFusee = 0, hauteur = 0, impulsionSpecifique = 16056;
         private Fusee fusee;
 
 
@@ -27,16 +27,12 @@ namespace CodeJam_SPACE
             poidsFusee = (masseFusee + quantiteCarburant) * INTENSITE_GRAV_TERRE;
         }
         void CalculerAcceleration()
-        {
-            accelerationFusee = (pousseeFusee - poidsFusee) / masseFusee;
-        }
-        void CalculerVelociteGaz()
-        {
-            velociteGaz = velociteGaz + accelerationFusee;
+        { 
+            accelerationFusee = (pousseeFusee - poidsFusee) / (masseFusee + quantiteCarburant); //wrong? Voir http://www.rocket-simulator.com/simulator_calc.php  et https://en.wikipedia.org/wiki/Tsiolkovsky_rocket_equation#Examples et https://fr.wikipedia.org/wiki/Moteur-fusée_à_ergols_liquides#Caractéristiques_de_quelques_moteurs-fusées_à_ergols_liquides
         }
         void CalculerPerteMasse()
         {
-            debitMassiqueGaz = densiteGaz * velociteGaz * aireMoteur;
+            debitMasique = pousseeFusee / impulsionSpecifique;
         }
         void CalculerVitesseFusee()
         {
@@ -54,13 +50,12 @@ namespace CodeJam_SPACE
                 System.Threading.Thread.Sleep(1000);
                 CalculerPoidsFusee();
                 CalculerAcceleration();
-                CalculerVelociteGaz();
                 CalculerVitesseFusee();
                 CalculerHauteurFusee();
                 if (quantiteCarburant > 0)
                 {
                     CalculerPerteMasse();
-                    quantiteCarburant -= debitMassiqueGaz;
+                    quantiteCarburant -= debitMasique;
                 }
                 if (quantiteCarburant <= 0)
                 {
@@ -70,7 +65,7 @@ namespace CodeJam_SPACE
                 timer++;
                     timer = 0;
                     Console.SetCursorPosition(0,0);
-                    Console.Write("Vitesse : " + vitesseFusee + "\nPoids : " + poidsFusee + "\nAcceleration : " + accelerationFusee + "\nQuantité de carburant : " + quantiteCarburant + "\nHauteur : " + hauteur);
+                    Console.Write("Vitesse : " + vitesseFusee + "\nPoids : " + poidsFusee + "\nAcceleration : " + accelerationFusee + "\nQuantité de carburant : " + quantiteCarburant + "\nHauteur : " + hauteur + "\nDebit massique: " + debitMasique);
             }
         }
         /*double CalculerVitesseEjectionGaz()
