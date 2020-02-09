@@ -14,17 +14,17 @@ namespace CodeJam_SPACE
          */
 
         private readonly double INTENSITE_GRAV_TERRE = 9.8/*N/kg*/, VITESSE_SATELLISATION = 7.9/*km/s*/;
-        private double poidsFusee, masseFusee, quantiteCarburant, pousseeFusee, debitMassiqueGaz, aireMoteur, densiteGaz, volumeGaz, accelerationFusee, velociteGaz = 0;
+        private double poidsFusee, masseFusee = 500000, quantiteCarburant = 190000, pousseeFusee = 2280000, debitMassiqueGaz, aireMoteur, densiteGaz, volumeGaz, accelerationFusee, velociteGaz = 0,  vitesseFusee;
         private Fusee fusee;
 
 
-        public Physique(Fusee fusee)
+        public Physique(/*Fusee fusee*/)
         {
-            this.fusee = fusee;
+           // this.fusee = fusee;
         }
         double CalculerPoidsFusee()
         {
-            poidsFusee = masseFusee * INTENSITE_GRAV_TERRE;
+            poidsFusee = (masseFusee + quantiteCarburant) * INTENSITE_GRAV_TERRE;
             return poidsFusee;
         }
         double CalculerAcceleration()
@@ -41,6 +41,23 @@ namespace CodeJam_SPACE
         {
             debitMassiqueGaz = densiteGaz * CalculerVelociteGaz() * aireMoteur;
             return debitMassiqueGaz; //kg/s
+        }
+        public void MiseAJour()
+        {
+            int timer = 0;
+            while (vitesseFusee != 0)
+            {
+                quantiteCarburant -= CalculerPerteMasse();
+                if (quantiteCarburant <= 0)
+                    pousseeFusee = 0;
+                timer++;
+                if (timer == 1000)
+                {
+                    timer = 0;
+                    Console.SetCursorPosition(0,0);
+                    Console.Write("Vitesse : " + vitesseFusee + "\nPoids : " + poidsFusee + "\nAcceleration : " + accelerationFusee + "\nQuantité de carburant : " + quantiteCarburant);
+                }
+            }
         }
         /*double CalculerVitesseEjectionGaz()
         {

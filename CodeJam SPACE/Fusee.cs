@@ -15,7 +15,6 @@ namespace CodeJam_SPACE
         public Fusee(Moteur moteur, Cabine cabine, Carburant carburant, Charge charge)
         {
             this.moteur = moteur;
-            this.ailerons = ailerons;
             this.cabine = cabine;
             this.carburant = carburant;
             this.charge = charge;

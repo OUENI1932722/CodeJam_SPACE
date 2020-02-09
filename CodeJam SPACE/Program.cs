@@ -10,9 +10,10 @@ namespace CodeJam_SPACE
     {
         static void Main(string[] args)
         {
+            Physique physique = new Physique();
             ASCII ascii = new ASCII();
-            Interface.SetTailleConsole();
             Console.Write(ascii.terre);
+            physique.MiseAJour();
             Console.ReadKey();
         }
     }

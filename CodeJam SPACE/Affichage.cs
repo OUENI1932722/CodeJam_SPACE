@@ -101,7 +101,7 @@ namespace CodeJam_SPACE
             Console.WriteLine("Votre réponse :");
             Console.SetCursorPosition(27, 15);
         }
-        public void choixEngine()
+        public void choixMoteur()
         {
             effacerTextBox();
             Console.SetCursorPosition(10, 5);

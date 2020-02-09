@@ -23,7 +23,7 @@ namespace CodeJam_SPACE
             switch(typeCarburant)
             {
                 case TypeCarburant.Kerosène:
-                    poussee = 3510; //N*s/kg
+                    poussee = 3510; //m/s
                     densite = 1.03; //kg/m^3
                     prix = 0.73; //$/kg
                     this.quantite = quantite;

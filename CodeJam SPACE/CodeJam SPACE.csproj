@@ -43,14 +43,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Aileron.cs" />
     <Compile Include="ASCII.cs" />
     <Compile Include="Carburant.cs" />
     <Compile Include="Charge.cs" />
     <Compile Include="Cabine.cs" />
     <Compile Include="Fusee.cs" />
     <Compile Include="Hasard.cs" />
-    <Compile Include="Interface.cs" />
     <Compile Include="Moteur.cs" />
     <Compile Include="Physique.cs" />
     <Compile Include="Program.cs" />
