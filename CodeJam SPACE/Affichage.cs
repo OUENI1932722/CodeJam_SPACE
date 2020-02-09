@@ -59,11 +59,11 @@ namespace CodeJam_SPACE
             Console.SetCursorPosition(10, 9);
             Console.WriteLine("la provenance de la pièces : ");
             Console.SetCursorPosition(10, 11);
-            Console.WriteLine("1. SpaceX      (Cher, léger)");
+            Console.WriteLine("1. SpaceX      (Léger)");
             Console.SetCursorPosition(10, 12);
-            Console.WriteLine("2. EspacioTaco (Abordable, peu lourd)");
+            Console.WriteLine("2. EspacioTaco (Peu lourd)");
             Console.SetCursorPosition(10, 13);
-            Console.WriteLine("3. CNSA        (Pas cher, lourd)");
+            Console.WriteLine("3. CNSA        (Lourd)");
             Console.SetCursorPosition(12, 15);
             Console.WriteLine("(Appuyer sur une touche pour continuer)");
             Console.SetCursorPosition(51, 15);
@@ -73,13 +73,11 @@ namespace CodeJam_SPACE
             Console.SetCursorPosition(10, 5);
             Console.WriteLine("Bienvenue au CODEJAM Space Program!");
             Console.SetCursorPosition(10, 7);
-            Console.WriteLine("Il y a 3 types de pièces :");
+            Console.WriteLine("Il y a 2 types de pièces :");
             Console.SetCursorPosition(10, 9);
             Console.WriteLine("1. La cabine (Le siège avant)");
-            Console.SetCursorPosition(10, 10);
-            Console.WriteLine("2. La charge (Pour le transport de matériaux)");
             Console.SetCursorPosition(10, 11);
-            Console.WriteLine("3. Le moteur");
+            Console.WriteLine("2. Le moteur");
             Console.SetCursorPosition(12, 15);
             Console.WriteLine("(Appuyer sur une touche pour continuer)");
             Console.SetCursorPosition(51, 15);
@@ -170,8 +168,17 @@ namespace CodeJam_SPACE
             Console.Write(poids + " kg");
             Console.SetCursorPosition(136, 6);
             Console.Write(vitesse + " m/s    ");
-            effacerFusee();
-            fusee(random.Next(136,138), 16, 6);
+            if (Convert.ToDouble(carburant) > 0)
+            {
+                effacerFusee();
+                fusee(random.Next(136,138), 16, 6);
+            }
+            else
+            {
+                effacerFusee();
+                fusee(random.Next(136,138), 16, 0);
+            }
+
         }
         public void Lancement()
         {

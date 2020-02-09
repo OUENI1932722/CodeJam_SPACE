@@ -34,7 +34,7 @@ namespace CodeJam_SPACE
         }
         void CalculerAcceleration()
         { 
-            accelerationFusee = (pousseeFusee - poidsFusee) / (masseFusee + QuantiteCarburant); //wrong? Voir http://www.rocket-simulator.com/simulator_calc.php  et https://en.wikipedia.org/wiki/Tsiolkovsky_rocket_equation#Examples et https://fr.wikipedia.org/wiki/Moteur-fusée_à_ergols_liquides#Caractéristiques_de_quelques_moteurs-fusées_à_ergols_liquides
+            accelerationFusee = (pousseeFusee - poidsFusee) / (masseFusee + QuantiteCarburant); //Voir http://www.rocket-simulator.com/simulator_calc.php  et https://en.wikipedia.org/wiki/Tsiolkovsky_rocket_equation#Examples et https://fr.wikipedia.org/wiki/Moteur-fusée_à_ergols_liquides#Caractéristiques_de_quelques_moteurs-fusées_à_ergols_liquides
         }
         void CalculerPerteMasse()
         {
