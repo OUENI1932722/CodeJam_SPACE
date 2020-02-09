@@ -12,7 +12,6 @@ namespace CodeJam_SPACE
         {
             Physique physique = new Physique();
             ASCII ascii = new ASCII();
-            Console.Write(ascii.terre);
             physique.MiseAJour();
             Console.ReadKey();
         }

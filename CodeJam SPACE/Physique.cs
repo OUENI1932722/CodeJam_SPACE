@@ -14,7 +14,7 @@ namespace CodeJam_SPACE
          */
 
         private readonly double INTENSITE_GRAV_TERRE = 9.8/*N/kg*/, VITESSE_SATELLISATION = 7.9/*km/s*/;
-        private double poidsFusee, masseFusee = 500000, quantiteCarburant = 190000, pousseeFusee = 2280000, debitMassiqueGaz, aireMoteur, densiteGaz, volumeGaz, accelerationFusee, velociteGaz = 0,  vitesseFusee;
+        private double poidsFusee, masseFusee = 500000, quantiteCarburant = 190000, pousseeFusee = 2280000, debitMassiqueGaz, aireMoteur, densiteGaz, volumeGaz, accelerationFusee, velociteGaz = 0,  vitesseFusee = 1;
         private Fusee fusee;
 
 
@@ -22,32 +22,32 @@ namespace CodeJam_SPACE
         {
            // this.fusee = fusee;
         }
-        double CalculerPoidsFusee()
+        void CalculerPoidsFusee()
         {
             poidsFusee = (masseFusee + quantiteCarburant) * INTENSITE_GRAV_TERRE;
-            return poidsFusee;
         }
-        double CalculerAcceleration()
+        void CalculerAcceleration()
         {
-            accelerationFusee = (pousseeFusee - CalculerPoidsFusee()) / masseFusee;
-            return accelerationFusee;
+            accelerationFusee = (pousseeFusee - poidsFusee) / masseFusee;
         }
-        double CalculerVelociteGaz()
+        void CalculerVelociteGaz()
         {
-            velociteGaz = velociteGaz + CalculerAcceleration();
-            return velociteGaz; //m/s
+            velociteGaz = velociteGaz + accelerationFusee;
         }
-        double CalculerPerteMasse()
+        void CalculerPerteMasse()
         {
-            debitMassiqueGaz = densiteGaz * CalculerVelociteGaz() * aireMoteur;
-            return debitMassiqueGaz; //kg/s
+            debitMassiqueGaz = densiteGaz * velociteGaz * aireMoteur;
         }
         public void MiseAJour()
         {
             int timer = 0;
             while (vitesseFusee != 0)
             {
-                quantiteCarburant -= CalculerPerteMasse();
+                CalculerPoidsFusee();
+                CalculerAcceleration();
+                CalculerVelociteGaz();
+                CalculerPerteMasse();
+                quantiteCarburant -= debitMassiqueGaz;
                 if (quantiteCarburant <= 0)
                     pousseeFusee = 0;
                 timer++;
@@ -73,7 +73,7 @@ namespace CodeJam_SPACE
         }*/
         bool DecollageFusee()
         {
-            if (pousseeFusee > CalculerPoidsFusee())
+            if (pousseeFusee > poidsFusee)
                 return true;
             return false;
         }
