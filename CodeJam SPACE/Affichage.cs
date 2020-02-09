@@ -72,15 +72,13 @@ namespace CodeJam_SPACE
             Console.SetCursorPosition(10, 5);
             Console.WriteLine("Bienvenue au CODEJAM Space Program,");
             Console.SetCursorPosition(10, 7);
-            Console.WriteLine("Il y a 4 types de pièces :");
+            Console.WriteLine("Il y a 3 types de pièces :");
             Console.SetCursorPosition(10, 9);
             Console.WriteLine("1. Le cockpit (le siège avant)");
             Console.SetCursorPosition(10, 10);
             Console.WriteLine("2. Le cargo (Pour le transport de matériaux)");
             Console.SetCursorPosition(10, 11);
-            Console.WriteLine("3. Les ailerons (Pour l'aérodynamisme)");
-            Console.SetCursorPosition(10, 12);
-            Console.WriteLine("4. L'engine (le moteur)");
+            Console.WriteLine("3. Le moteur");
             Console.SetCursorPosition(12, 15);
             Console.WriteLine("(Appuyer sur une touche pour continuer)");
             Console.SetCursorPosition(51, 15);
@@ -130,6 +128,10 @@ namespace CodeJam_SPACE
             Console.SetCursorPosition(27, 15);
 
             Console.ForegroundColor = ConsoleColor.White;
+        }
+        public void updateFusee(Vent vent, int totalDistance)
+        {
+
         }
     }
 }
