@@ -82,7 +82,7 @@ namespace CodeJam_SPACE
                 affichage.choixQuantite();
                 FaireChoix(ref quantiteCarburant);
             }
-            while (quantiteCarburant > 2000 || quantiteCarburant <= 0);
+            while (quantiteCarburant > 20000 || quantiteCarburant <= 0);
             switch (choix)
             {
                 case 1:

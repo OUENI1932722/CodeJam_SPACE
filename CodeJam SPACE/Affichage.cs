@@ -155,7 +155,7 @@ namespace CodeJam_SPACE
             Console.SetCursorPosition(10, 7);
             Console.WriteLine("Veuillez choisir la quantité de carburant :");
             Console.SetCursorPosition(10, 9);
-            Console.WriteLine("Vous pouvez choisir jusqu'à 2000 Litres");
+            Console.WriteLine("Vous pouvez choisir jusqu'à 20000 Litres");
             Console.SetCursorPosition(12, 15);
             Console.WriteLine("Votre réponse : ");
             Console.SetCursorPosition(28, 15);
@@ -165,7 +165,7 @@ namespace CodeJam_SPACE
             Console.SetCursorPosition(147, 2);
             Console.Write(hauteur + " m");
             Console.SetCursorPosition(156, 4);
-            Console.Write(carburant + " kg    ");
+            Console.Write(carburant + " kg   ");
             Console.SetCursorPosition(156, 6);
             Console.Write(poids + " kg");
             Console.SetCursorPosition(136, 6);
